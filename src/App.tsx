@@ -1,8 +1,8 @@
 import Methodology from '@/components/Methodology'
 import Services from '@/components/Services'
+import Footer from '@/components/Footer'
 import ThemeSwitchDemo from '@/components/ThemeSwitchDemo'
 import ContactSection from '@/components/ContactSection'
-import FooterSection from '@/components/FooterSection'
 import HeroSection from '@/components/HeroSection'
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
       <Services />
       <Methodology />
       <ContactSection />
-      <FooterSection />
+      <Footer />
     </main>
   )
 }
