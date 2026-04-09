@@ -8,12 +8,14 @@ const stats = [
 
 export default function Results() {
   return (
-    <StatsCount
-      stats={stats}
-      title="SEGURIDAD Y TECNOLOGÍA,"
-      highlightedTitlePart="HECHAS A TU MEDIDA"
-      showDividers={true}
-      className=""
-    />
+    <section id="resultados">
+      <StatsCount
+        stats={stats}
+        title="SEGURIDAD Y TECNOLOGÍA,"
+        highlightedTitlePart="HECHAS A TU MEDIDA"
+        showDividers={true}
+        className=""
+      />
+    </section>
   )
 }

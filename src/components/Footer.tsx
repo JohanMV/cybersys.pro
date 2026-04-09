@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import type React from 'react'
 import { motion, type Variants } from 'motion/react'
@@ -78,28 +78,28 @@ const defaultColumns: FooterColumn[] = [
   {
     heading: 'Servicios',
     links: [
-      { text: 'Desarrollo de software', url: '#' },
-      { text: 'Ciberseguridad', url: '#' },
-      { text: 'Infraestructura cloud', url: '#' },
-      { text: 'Automatización', url: '#' },
+      { text: 'Soluciones con IA', url: '#servicios' },
+      { text: 'Ciberseguridad', url: '#servicios' },
+      { text: 'Desarrollo web', url: '#servicios' },
+      { text: 'Automatización', url: '#servicios' },
     ],
   },
   {
     heading: 'Empresa',
     links: [
-      { text: 'Nosotros', url: '#' },
-      { text: 'Metodología', url: '#' },
-      { text: 'Casos de éxito', url: '#' },
-      { text: 'Contacto', url: '#' },
+      { text: 'Inicio', url: '#inicio' },
+      { text: 'Metodología', url: '#metodologia' },
+      { text: 'Resultados', url: '#resultados' },
+      { text: 'Contacto', url: '#contacto' },
     ],
   },
   {
     heading: 'Recursos',
     links: [
-      { text: 'Documentación', url: '#' },
-      { text: 'Centro de ayuda', url: '#' },
-      { text: 'Estado del servicio', url: '#' },
-      { text: 'Comunidad', url: '#' },
+      { text: 'Servicios', url: '#servicios' },
+      { text: 'Metodología', url: '#metodologia' },
+      { text: 'Resultados', url: '#resultados' },
+      { text: 'Contáctanos', url: '#contacto' },
     ],
   },
 ]

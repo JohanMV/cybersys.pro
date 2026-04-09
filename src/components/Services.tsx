@@ -4,48 +4,43 @@ import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
 
 const items = [
   {
-    title: 'Deep Analytics',
+    title: 'Soluciones con IA',
     description:
-      'Gain actionable insights from your data with powerful analytics tools.',
+      'Modelos inteligentes entrenados para automatizar y potenciar tu negocio.',
     icon: <BarChart3 className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
-    image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60',
+    image: '/images/servicio_ia.webp',
   },
   {
-    title: 'Enterprise Security',
+    title: 'Ciberseguridad',
     description:
-      'Bank-grade encryption and compliance tools to keep your data safe.',
+      'Protección proactiva, análisis de vulnerabilidades y respuesta a incidentes.',
     icon: <Lock className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
-    image:
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=60',
+    image: '/images/servicio_ciberseguridad.webp',
   },
   {
-    title: 'The Joy of Creation',
-    description: 'Experience the thrill of bringing ideas to life.',
+    title: 'Estrategia y Liderazgo Tecnológico',
+    description: 'Consultoría especializada en la definición de roadmaps técnicos y selección de infraestructura protegida.',
     icon: <Sparkles className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1 md:row-span-2',
-    image:
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=60',
+    image: '/images/servicio_estrategia.webp',
   },
   {
-    title: 'Global CDN',
+    title: 'Desarrollo Web',
     description:
-      'Deliver content at lightning speed to users anywhere in the world.',
+      'Plataformas digitales rápidas, seguras y escalables que convierten visitantes en clientes.',
     icon: <Globe className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
-    image:
-      'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&auto=format&fit=crop&q=60',
+    image: '/images/servicio_web.webp',
   },
   {
-    title: 'AI-Powered Features',
+    title: 'Automatización de Procesos',
     description:
-      'Supercharge your workflow with intelligent suggestions and automation.',
+      'Elimina tareas repetitivas. Más velocidad, menos errores.',
     icon: <Sparkles className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
-    image:
-      'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&auto=format&fit=crop&q=60',
+    image: '/images/servicio_automatizacion.webp',
   },
 ]
 

@@ -132,7 +132,7 @@ export default function Methodology() {
   const [active, setActive] = React.useState(0)
 
   return (
-    <section className="relative w-full py-24">
+    <section id="metodologia" className="relative w-full py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-16">
           <div>
