@@ -11,6 +11,43 @@ interface MethodologyItem {
   content: React.ReactNode
 }
 
+function MethodologyVideo({
+  step,
+  title,
+  description,
+  src,
+}: {
+  step: string
+  title: string
+  description: string
+  src: string
+}) {
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-zinc-950">
+      <video
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+      <div className="absolute inset-0 flex h-full w-full flex-col justify-between p-8 text-left">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-sm font-semibold text-zinc-900">
+          {step}
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-2xl font-semibold text-white">{title}</h3>
+          <p className="text-sm leading-relaxed text-zinc-200">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function MethodologyPanel({
   step,
   title,
@@ -41,10 +78,11 @@ const items: MethodologyItem[] = [
   {
     title: 'Consultoría y Diagnóstico',
     content: (
-      <MethodologyPanel
+      <MethodologyVideo
         step="01"
         title="Consultoría y Diagnóstico"
         description="Analizamos procesos, objetivos y necesidades técnicas para definir una hoja de ruta realista desde el inicio."
+        src="/videos/metodologia_1.webm"
       />
     ),
   },
@@ -99,7 +137,7 @@ export default function Methodology() {
         <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              Metodología.
+              Metodología
             </h2>
             <p className="mb-10 max-w-md text-base text-zinc-500 dark:text-zinc-400">
               Así convertimos una necesidad tecnológica en una solución segura,

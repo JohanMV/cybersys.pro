@@ -67,9 +67,10 @@ export default function Services() {
         <h2 className="text-4xl font-bold text-zinc-900 md:text-5xl lg:text-6xl dark:text-white">
           Servicios
         </h2>
-        <p className="max-w-md text-base text-zinc-500 dark:text-zinc-400">
-          Diseñamos e implementamos soluciones tecnológicas para impulsar la
-          operación, seguridad y crecimiento digital de tu empresa.
+        <p className="max-w-3xl text-base text-zinc-500 dark:text-zinc-400">
+          Diseñamos e implementamos soluciones tecnológicas para
+          <br />
+          impulsar la operación, seguridad y crecimiento digital de tu empresa.
         </p>
       </div>
 
