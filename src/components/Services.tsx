@@ -1,4 +1,4 @@
-import { BarChart3, Globe, Lock, Sparkles } from 'lucide-react'
+﻿import { BarChart3, Globe, Lock, Sparkles } from 'lucide-react'
 
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
 
@@ -17,9 +17,17 @@ const items = [
     description:
       'Bank-grade encryption and compliance tools to keep your data safe.',
     icon: <Lock className="h-4 w-4 text-neutral-500" />,
-    containerClassName: 'md:col-span-2',
+    containerClassName: 'md:col-span-1',
     image:
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=60',
+  },
+  {
+    title: 'The Joy of Creation',
+    description: 'Experience the thrill of bringing ideas to life.',
+    icon: <Sparkles className="h-4 w-4 text-neutral-500" />,
+    containerClassName: 'md:col-span-1 md:row-span-2',
+    image:
+      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=60',
   },
   {
     title: 'Global CDN',
@@ -39,27 +47,14 @@ const items = [
     image:
       'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&auto=format&fit=crop&q=60',
   },
-  {
-    title: 'The Joy of Creation',
-    description: 'Experience the thrill of bringing ideas to life.',
-    icon: <Sparkles className="h-4 w-4 text-neutral-500" />,
-    containerClassName: 'md:col-span-1 md:row-span-2',
-    image:
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=60',
-  },
-  {
-    title: 'The Spirit of Adventure',
-    description: 'Embark on exciting journeys and thrilling discoveries.',
-    icon: <Sparkles className="h-4 w-4 text-neutral-500" />,
-    containerClassName: 'md:col-span-2',
-    image:
-      'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?w=800&auto=format&fit=crop&q=60',
-  },
 ]
 
 export default function Services() {
   return (
-    <section className="w-full bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
+    <section
+      id="servicios"
+      className="w-full bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8"
+    >
       <div className="relative mx-auto mb-12 flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6">
         <div className="inline-flex items-center rounded-full border border-rose-400/30 bg-rose-500/10 px-4 py-1.5">
           <span className="text-sm font-medium text-rose-500">Servicios</span>
@@ -82,6 +77,7 @@ export default function Services() {
             description={item.description}
             icon={item.icon}
             containerClassName={item.containerClassName}
+            disableTilt
             header={
               <div className="relative flex h-full min-h-24 w-full overflow-hidden rounded-xl">
                 <img

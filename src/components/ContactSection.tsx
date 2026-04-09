@@ -1,5 +1,9 @@
-import ContactWithGlobe from '@/components/ui/contact-with-globe'
+﻿import ContactWithGlobe from '@/components/ui/contact-with-globe'
 
 export default function ContactSection() {
-  return <ContactWithGlobe />
+  return (
+    <div id="contacto">
+      <ContactWithGlobe />
+    </div>
+  )
 }
