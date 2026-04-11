@@ -27,10 +27,23 @@ export interface OrbButtonProps
   Icon?: React.ComponentType<{ className?: string }>;
   icon?: React.ReactNode;
   dotClassName?: string;
+  showIconAlways?: boolean;
 }
 
 const OrbButton = React.forwardRef<HTMLButtonElement, OrbButtonProps>(
-  ({ className, size, children, Icon, icon, dotClassName, ...props }, ref) => {
+  (
+    {
+      className,
+      size,
+      children,
+      Icon,
+      icon,
+      dotClassName,
+      showIconAlways = false,
+      ...props
+    },
+    ref,
+  ) => {
     const buttonSize = size ?? 'default';
     const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
     const buttonRef = React.useRef<HTMLButtonElement | null>(null);
@@ -71,7 +84,14 @@ const OrbButton = React.forwardRef<HTMLButtonElement, OrbButtonProps>(
         {...props}
       >
         <span className={cn('relative shrink-0 rounded-full flex items-center justify-center bg-black dark:bg-white transition-all duration-500 w-2.5 h-2.5', dotExpanded, dotClassName)}>
-          <span className="text-white dark:text-black flex items-center justify-center opacity-0 scale-50 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-data-[touched=true]:opacity-100 group-data-[touched=true]:scale-100">
+          <span
+            className={cn(
+              'text-white dark:text-black flex items-center justify-center transition-all duration-300',
+              showIconAlways
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 group-data-[touched=true]:opacity-100 group-data-[touched=true]:scale-100',
+            )}
+          >
             {resolvedIcon}
           </span>
         </span>

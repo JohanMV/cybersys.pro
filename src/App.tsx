@@ -2,6 +2,7 @@ import Methodology from '@/components/Methodology'
 import Services from '@/components/Services'
 import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
+import Projects from '@/components/Projects'
 import Results from '@/components/Results'
 import ThemeSwitchDemo from '@/components/ThemeSwitchDemo'
 import ContactSection from '@/components/ContactSection'
@@ -15,6 +16,7 @@ export default function App() {
       <Hero />
       <Services />
       <Methodology />
+      <Projects />
       <Results />
       <ContactSection />
       <Footer />
