@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import * as React from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 import { BarChart3, ChevronDown, ChevronUp, Globe, LayoutGrid, Lock } from 'lucide-react'
 
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
@@ -182,28 +183,44 @@ export default function Projects() {
         })}
       </div>
 
-      <BentoGrid className="md:grid-cols-3">
-        {visibleItems.map((item) => (
-          <BentoGridItem
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            icon={item.icon}
-            containerClassName={item.containerClassName}
-            disableTilt
-            header={
-              <div className="relative flex h-full min-h-24 w-full overflow-hidden rounded-xl">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover/bento:scale-105"
+      <motion.div layout transition={{ duration: 0.35, ease: 'easeInOut' }}>
+        <BentoGrid className="md:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {visibleItems.map((item, index) => (
+              <motion.div
+                key={item.title}
+                layout
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 16, scale: 0.98 }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.04,
+                  ease: 'easeOut',
+                }}
+              >
+                <BentoGridItem
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                  containerClassName={item.containerClassName}
+                  disableTilt
+                  header={
+                    <div className="relative flex h-full min-h-24 w-full overflow-hidden rounded-xl">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover/bento:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/10 dark:bg-black/30" />
+                    </div>
+                  }
                 />
-                <div className="absolute inset-0 bg-black/10 dark:bg-black/30" />
-              </div>
-            }
-          />
-        ))}
-      </BentoGrid>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </BentoGrid>
+      </motion.div>
 
       {hasMoreThanThree && (
         <div className="mx-auto mt-8 flex max-w-7xl justify-center">
