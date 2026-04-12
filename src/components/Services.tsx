@@ -71,6 +71,7 @@ export default function Services() {
             title={item.title}
             description={item.description}
             icon={item.icon}
+            className="border-black dark:border-white/20"
             containerClassName={item.containerClassName}
             disableTilt
             header={
