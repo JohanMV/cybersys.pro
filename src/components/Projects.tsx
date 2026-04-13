@@ -7,7 +7,6 @@ import {
   ChevronDown,
   ChevronUp,
   ExternalLink,
-  FolderGit2,
   Globe,
   LayoutGrid,
   Lock,
@@ -45,27 +44,47 @@ interface ProjectItem {
   detail?: ProjectDetail
 }
 
+const BUSINESS_WHATSAPP_NUMBER = '51999999999'
+
+function createWhatsAppProjectUrl(projectTitle: string) {
+  const message = `Hola, quiero solicitar el proyecto "${projectTitle}" para mi negocio.`
+  return `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M19.05 4.94A9.87 9.87 0 0 0 12.03 2a9.94 9.94 0 0 0-8.6 14.92L2 22l5.24-1.37a9.94 9.94 0 0 0 4.75 1.2h.01A9.99 9.99 0 0 0 22 11.94a9.83 9.83 0 0 0-2.95-7ZM12 20.15h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.11.81.83-3.03-.2-.31a8.28 8.28 0 1 1 6.99 3.86Zm4.54-6.19c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.03-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.45.06-.68.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.76 2.69 4.27 3.77.6.26 1.07.42 1.43.54.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" />
+    </svg>
+  )
+}
+
 const filters: {
   label: ProjectCategory
   icon: React.ReactNode
 }[] = [
-  {
-    label: 'Todos',
-    icon: <LayoutGrid className="h-4 w-4" />,
-  },
-  {
-    label: 'IA y Automatización',
-    icon: <BarChart3 className="h-4 w-4" />,
-  },
-  {
-    label: 'Ciberseguridad',
-    icon: <Lock className="h-4 w-4" />,
-  },
-  {
-    label: 'Desarrollo Web',
-    icon: <Globe className="h-4 w-4" />,
-  },
-]
+    {
+      label: 'Todos',
+      icon: <LayoutGrid className="h-4 w-4" />,
+    },
+    {
+      label: 'IA y Automatización',
+      icon: <BarChart3 className="h-4 w-4" />,
+    },
+    {
+      label: 'Ciberseguridad',
+      icon: <Lock className="h-4 w-4" />,
+    },
+    {
+      label: 'Desarrollo Web',
+      icon: <Globe className="h-4 w-4" />,
+    },
+  ]
 
 const items: ProjectItem[] = [
   {
@@ -76,6 +95,21 @@ const items: ProjectItem[] = [
     icon: <BarChart3 className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ia.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Implementación de referencia para centralizar automatizaciones, acelerar tareas repetitivas y conectar procesos clave con una capa de inteligencia aplicada al negocio.',
+      tools: ['Python', 'OpenAI API', 'n8n', 'FastAPI', 'PostgreSQL'],
+      gallery: [
+        '/images/servicio_ia.webp',
+        '/images/servicio_automatizacion.webp',
+        '/images/servicio_estrategia.webp',
+        '/images/servicio_web.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/ia-automatizacion',
+      note: 'Contenido de ejemplo para visualizar la propuesta de automatización en formato comercial.',
+    },
   },
   {
     title: 'Agente de Soporte Interno',
@@ -85,6 +119,21 @@ const items: ProjectItem[] = [
     icon: <BarChart3 className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ia.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Agente interno diseñado para responder preguntas operativas, consultar documentación y asistir a equipos comerciales o de soporte con respuestas más rápidas y consistentes.',
+      tools: ['OpenAI API', 'LangChain', 'React', 'Node.js', 'Supabase'],
+      gallery: [
+        '/images/servicio_ia.webp',
+        '/images/servicio_web.webp',
+        '/images/servicio_automatizacion.webp',
+        '/images/servicio_estrategia.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/agente-soporte',
+      note: 'Datos de ejemplo para mostrar cómo se presentaría un asistente interno listo para negocio.',
+    },
   },
   {
     title: 'Clasificación Automática de Leads',
@@ -94,6 +143,21 @@ const items: ProjectItem[] = [
     icon: <BarChart3 className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ia.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Sistema de priorización comercial pensado para identificar oportunidades con mayor intención de compra y ayudar al equipo a enfocar esfuerzos donde hay más valor.',
+      tools: ['Python', 'Scikit-learn', 'React', 'FastAPI', 'HubSpot API'],
+      gallery: [
+        '/images/servicio_ia.webp',
+        '/images/servicio_estrategia.webp',
+        '/images/servicio_web.webp',
+        '/images/servicio_automatizacion.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/clasificacion-leads',
+      note: 'Ejemplo visual preparado para simular un flujo de scoring y seguimiento comercial.',
+    },
   },
   {
     title: 'Ciberseguridad',
@@ -103,6 +167,21 @@ const items: ProjectItem[] = [
     icon: <Lock className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ciberseguridad_2.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Proyecto marco para fortalecer la postura digital de una organización mediante evaluación de riesgos, hardening técnico y definición de controles de protección continua.',
+      tools: ['Wazuh', 'Suricata', 'Docker', 'Linux', 'OWASP'],
+      gallery: [
+        '/images/servicio_ciberseguridad_2.webp',
+        '/images/servicio_ciberseguridad.webp',
+        '/images/servicio_estrategia.webp',
+        '/images/servicio_web.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/ciberseguridad-base',
+      note: 'Contenido de ejemplo para mostrar un enfoque integral de seguridad adaptado a empresa.',
+    },
   },
   {
     title: 'Monitoreo de Amenazas',
@@ -112,6 +191,21 @@ const items: ProjectItem[] = [
     icon: <Lock className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ciberseguridad.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Solución orientada a visibilidad operativa, correlación de eventos y alertamiento temprano para reducir tiempos de detección y respuesta frente a incidentes.',
+      tools: ['Elastic', 'Sigma Rules', 'Python', 'Grafana', 'MITRE ATT&CK'],
+      gallery: [
+        '/images/servicio_ciberseguridad.webp',
+        '/images/servicio_ciberseguridad_2.webp',
+        '/images/servicio_automatizacion.webp',
+        '/images/servicio_ia.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/monitoreo-amenazas',
+      note: 'Vista de ejemplo para representar monitoreo continuo y analítica de eventos.',
+    },
   },
   {
     title: 'Auditoría de Seguridad Web',
@@ -121,6 +215,21 @@ const items: ProjectItem[] = [
     icon: <Lock className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_ciberseguridad.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Evaluación técnica enfocada en descubrir riesgos de aplicaciones web, validar configuraciones críticas y priorizar acciones concretas de mejora con criterio de negocio.',
+      tools: ['Burp Suite', 'OWASP ZAP', 'Nmap', 'Docker', 'Checklist OWASP'],
+      gallery: [
+        '/images/servicio_ciberseguridad.webp',
+        '/images/servicio_ciberseguridad_2.webp',
+        '/images/servicio_web.webp',
+        '/images/servicio_estrategia.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/auditoria-web',
+      note: 'Información de ejemplo para visualizar una auditoría web presentada como solución comercial.',
+    },
   },
   {
     title: 'GEOPETS - Clínica Veterinaria',
@@ -131,6 +240,7 @@ const items: ProjectItem[] = [
     containerClassName: 'md:col-span-1',
     image: '/images/geopets_clinica_web.webp',
     detail: {
+      layout: 'split',
       summary:
         'Landing page premium construida como SPA estática con React + Vite para comunicar una propuesta de valor de alto nivel, reforzar la confianza de marca y presentar servicios, instalaciones, equipo médico y contacto en una sola experiencia web.',
       tools: [
@@ -145,6 +255,7 @@ const items: ProjectItem[] = [
         '/images/geopets_clinica_web.webp',
         '/images/servicio_web.webp',
         '/images/servicio_estrategia.webp',
+        '/images/servicio_ia.webp',
       ],
       liveUrl: 'https://geopets-clinica-veterinaria.vercel.app/',
       repoUrl: 'https://github.com/JohanMV/GEOPETS_Clinica_Veterinaria',
@@ -183,6 +294,21 @@ const items: ProjectItem[] = [
     icon: <Globe className="h-4 w-4 text-neutral-500" />,
     containerClassName: 'md:col-span-1',
     image: '/images/servicio_web.webp',
+    detail: {
+      layout: 'split',
+      summary:
+        'Aplicación de ejemplo para administrar reservas, disponibilidad, confirmaciones y seguimiento de clientes desde una experiencia clara, veloz y lista para escalar.',
+      tools: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+      gallery: [
+        '/images/servicio_web.webp',
+        '/images/servicio_estrategia.webp',
+        '/images/servicio_automatizacion.webp',
+        '/images/servicio_ia.webp',
+      ],
+      liveUrl: 'https://example.com',
+      repoUrl: 'https://github.com/example/plataforma-reservas',
+      note: 'Demo de presentación para una solución web orientada a reservas y operación diaria.',
+    },
   },
 ]
 
@@ -288,17 +414,15 @@ function ProjectDetailModal({
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       )}
-                      {project.detail.repoUrl && (
-                        <a
-                          href={project.detail.repoUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl border border-black/20 bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
-                        >
-                          Ver repositorio
-                          <FolderGit2 className="h-4 w-4" />
-                        </a>
-                      )}
+                      <a
+                        href={createWhatsAppProjectUrl(project.title)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+                      >
+                        Solicitar para mi negocio
+                        <WhatsAppIcon className="h-4 w-4 text-green-600 dark:text-white" />
+                      </a>
                     </div>
                   </div>
 
@@ -422,17 +546,15 @@ function ProjectDetailModal({
                         <ExternalLink className="h-4 w-4" />
                       </a>
                     )}
-                    {project.detail.repoUrl && (
-                      <a
-                        href={project.detail.repoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl border border-black/20 bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
-                      >
-                        Ver repositorio
-                        <FolderGit2 className="h-4 w-4" />
-                      </a>
-                    )}
+                    <a
+                      href={createWhatsAppProjectUrl(project.title)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+                    >
+                      Solicitar para mi negocio
+                      <WhatsAppIcon className="h-4 w-4 text-green-600 dark:text-white" />
+                    </a>
                   </div>
                 </div>
               )}
@@ -548,11 +670,11 @@ export default function Projects() {
                     onKeyDown={
                       item.detail
                         ? (event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              event.preventDefault()
-                              setActiveProject(item)
-                            }
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault()
+                            setActiveProject(item)
                           }
+                        }
                         : undefined
                     }
                     className={cn(item.detail && 'cursor-pointer')}
