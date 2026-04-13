@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import * as React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
@@ -12,6 +12,8 @@ import {
   Lock,
   X,
 } from 'lucide-react'
+
+import WhatsAppLogo from '@/assets/icons-whatsapp.svg'
 
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
 import ModernLoader from '@/components/ui/modern-loader'
@@ -53,14 +55,11 @@ function createWhatsAppProjectUrl(projectTitle: string) {
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
+    <img
+      src={WhatsAppLogo}
+      alt="WhatsApp"
       className={className}
-    >
-      <path d="M19.05 4.94A9.87 9.87 0 0 0 12.03 2a9.94 9.94 0 0 0-8.6 14.92L2 22l5.24-1.37a9.94 9.94 0 0 0 4.75 1.2h.01A9.99 9.99 0 0 0 22 11.94a9.83 9.83 0 0 0-2.95-7ZM12 20.15h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.11.81.83-3.03-.2-.31a8.28 8.28 0 1 1 6.99 3.86Zm4.54-6.19c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.03-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.45.06-.68.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.76 2.69 4.27 3.77.6.26 1.07.42 1.43.54.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" />
-    </svg>
+    />
   )
 }
 
@@ -421,7 +420,7 @@ function ProjectDetailModal({
                         className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
                       >
                         Solicitar para mi negocio
-                        <WhatsAppIcon className="h-4 w-4 text-green-600 dark:text-white" />
+                        <WhatsAppIcon className="h-6 w-6 text-green-600 dark:text-white" />
                       </a>
                     </div>
                   </div>
@@ -553,7 +552,7 @@ function ProjectDetailModal({
                       className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
                     >
                       Solicitar para mi negocio
-                      <WhatsAppIcon className="h-4 w-4 text-green-600 dark:text-white" />
+                      <WhatsAppIcon className="h-6 w-6 text-green-600 dark:text-white" />
                     </a>
                   </div>
                 </div>
