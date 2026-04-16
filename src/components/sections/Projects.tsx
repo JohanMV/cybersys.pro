@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import * as React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
@@ -252,9 +252,9 @@ const items: ProjectItem[] = [
       ],
       gallery: [
         '/images/geopets_clinica_web.webp',
-        '/images/servicio_web.webp',
-        '/images/servicio_estrategia.webp',
-        '/images/servicio_ia.webp',
+        '/images/geopets_clinica_web_2.webp',
+        '/images/geopets_clinica_web_3.webp',
+        '/images/ratios16_9.jpg',
       ],
       liveUrl: 'https://geopets-clinica-veterinaria.vercel.app/',
       repoUrl: 'https://github.com/JohanMV/GEOPETS_Clinica_Veterinaria',

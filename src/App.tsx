@@ -1,11 +1,11 @@
-import Methodology from '@/components/Methodology'
-import Services from '@/components/Services'
-import Footer from '@/components/Footer'
-import Hero from '@/components/Hero'
-import Projects from '@/components/Projects'
-import Results from '@/components/Results'
-import ThemeSwitchDemo from '@/components/ThemeSwitchDemo'
-import ContactSection from '@/components/ContactSection'
+import Methodology from '@/components/sections/Methodology'
+import Services from '@/components/sections/Services'
+import Footer from '@/components/sections/Footer'
+import Hero from '@/components/sections/Hero'
+import Projects from '@/components/sections/Projects'
+import Results from '@/components/sections/Results'
+import ThemeSwitchDemo from '@/components/sections/ThemeSwitchDemo'
+import ContactSection from '@/components/sections/ContactSection'
 
 export default function App() {
   return (

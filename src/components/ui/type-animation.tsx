@@ -1,15 +1,15 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'motion/react';
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation as ReactTypeAnimation } from 'react-type-animation';
 import { cn } from '@/lib/utils';
 import type { ComponentProps } from 'react';
 
-type LibrarySpeedType = ComponentProps<typeof TypeAnimation>['speed'];
+type LibrarySpeedType = ComponentProps<typeof ReactTypeAnimation>['speed'];
 
 type SpeedType = number | 'slow' | 'normal' | 'fast';
 
-interface TypeanimationProps {
+interface TypeAnimationProps {
   words?: string[];
   className?: string;
   typingSpeed?: SpeedType;
@@ -19,7 +19,7 @@ interface TypeanimationProps {
   gradientTo?: string;
 }
 
-const Typeanimation = ({
+const TypeAnimation = ({
   words = [' existence', ' reality', ' the Internet'],
   className,
   typingSpeed = 50,
@@ -27,7 +27,7 @@ const Typeanimation = ({
   pauseDuration = 1000,
   gradientFrom = 'blue-500',
   gradientTo = 'purple-600',
-}: TypeanimationProps) => {
+}: TypeAnimationProps) => {
   const sequence = words.flatMap((word) => [word, pauseDuration]);
 
   return (
@@ -40,7 +40,7 @@ const Typeanimation = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <TypeAnimation
+      <ReactTypeAnimation
         sequence={sequence}
         wrapper='span'
         repeat={Infinity}
@@ -52,4 +52,6 @@ const Typeanimation = ({
   );
 };
 
-export default Typeanimation;
+export default TypeAnimation;
+
+

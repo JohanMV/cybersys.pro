@@ -1,4 +1,4 @@
-﻿import StatsCount from '@/components/ui/statscount'
+﻿import StatsCount from '@/components/ui/stats-count'
 
 const stats = [
   { value: 50, suffix: '+', label: 'Proyectos terminados' },
@@ -19,3 +19,5 @@ export default function Results() {
     </section>
   )
 }
+
+

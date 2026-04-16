@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, {
   useState,
   useEffect,
@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-import TypeAnimation from '@/components/ui/typeanimation';
+import TypeAnimation from '@/components/ui/type-animation';
 
 interface ModernLoaderProps {
   words?: string[];
@@ -252,3 +252,5 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({
 };
 
 export default ModernLoader;
+
+

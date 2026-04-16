@@ -1,5 +1,5 @@
 ﻿import { OrbButton } from '@/components/ui/orb-button'
-import Typeanimation from '@/components/ui/typeanimation'
+import TypeAnimation from '@/components/ui/type-animation'
 import VenomBeam from '@/components/ui/venom-beam'
 
 export default function Hero() {
@@ -14,7 +14,7 @@ export default function Hero() {
           Cybersys
           <br />
           Descubre nuevas{' '}
-          <Typeanimation
+          <TypeAnimation
             words={[' posibilidades', ' oportunidades', ' soluciones']}
             typingSpeed="slow"
             deletingSpeed="slow"
