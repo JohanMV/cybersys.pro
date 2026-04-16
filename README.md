@@ -2,7 +2,9 @@
 
 Desarrollo de la landing page institucional interactiva para **CyberSys**. Construida bajo una arquitectura orientada a la conversión comercial, rendimiento óptimo y diseño premium con animaciones modernas.
 
-![CyberSys Preview](public\images\cybersys_app.webp)
+<p align="center">
+  <img src="./public/images/cybersys_app.webp" alt="Refriclimatic Multi-device" width="800">
+</p>
 
 ## 🚀 Stack Tecnológico
 
