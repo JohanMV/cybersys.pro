@@ -59,7 +59,8 @@ export default function Services() {
         </h2>
         <p className="max-w-3xl text-base text-zinc-500 dark:text-zinc-400">
           Diseñamos e implementamos soluciones tecnológicas para
-          <br />
+          <br className="hidden md:block" />
+          <span className="md:hidden"> </span>
           impulsar la operación, seguridad y crecimiento digital de tu empresa.
         </p>
       </div>

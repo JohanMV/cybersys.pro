@@ -198,7 +198,7 @@ const VenomBeam: React.FC<VenomBeamProps> = ({ children, className = '' }) => {
   }, []);
 
   return (
-    <div className='relative  h-96 md:h-screen w-full overflow-hidden bg-white dark:bg-black'>
+    <div className='relative min-h-[100svh] w-full overflow-hidden bg-white dark:bg-black md:h-screen md:min-h-0'>
       <canvas
         ref={canvasRef}
         className='absolute inset-0 w-full h-full bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'

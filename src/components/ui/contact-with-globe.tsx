@@ -23,9 +23,9 @@ interface ContactWithGlobeProps {
 }
 
 export default function ContactWithGlobe({
-  title = 'ContÃ¡ctanos',
+  title = 'Contáctanos',
   subtitle = 'Contacto',
-  description = 'Siempre buscamos nuevas formas de mejorar nuestros productos y servicios. CuÃ©ntanos cÃ³mo podemos ayudarte.',
+  description = 'Siempre buscamos nuevas formas de mejorar nuestros productos y servicios. Cuéntanos cómo podemos ayudarte.',
   className,
 }: ContactWithGlobeProps) {
   return (
@@ -83,7 +83,7 @@ export default function ContactWithGlobe({
                 Hablemos
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
-                EscrÃ­benos por cualquiera de estos canales. Normalmente respondemos dentro de un dÃ­a hÃ¡bil.
+                Escríbenos por cualquiera de estos canales. Normalmente respondemos dentro de un día hábil.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export default function ContactWithGlobe({
           >
             <div>
               <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-0.5">
-                EnvÃ­anos un mensaje
+                Envíanos un mensaje
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
                 Completa el formulario y te responderemos a la brevedad.
@@ -162,7 +162,7 @@ export default function ContactWithGlobe({
 
             <div className="flex flex-col gap-2">
               <label className="text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-                Correo electrÃ³nico
+                Correo electrónico
               </label>
               <input
                 type="email"
@@ -176,7 +176,7 @@ export default function ContactWithGlobe({
                 Mensaje
               </label>
               <textarea
-                placeholder="Escribe tu mensaje aquÃ­"
+                placeholder="Escribe tu mensaje aquí"
                 rows={4}
                 className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 resize-none transition-all duration-200"
               />
@@ -193,5 +193,3 @@ export default function ContactWithGlobe({
     </section>
   );
 }
-
-

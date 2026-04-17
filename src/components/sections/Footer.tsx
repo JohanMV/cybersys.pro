@@ -93,15 +93,6 @@ const defaultColumns: FooterColumn[] = [
       { text: 'Contacto', url: '#contacto' },
     ],
   },
-  {
-    heading: 'Recursos',
-    links: [
-      { text: 'Servicios', url: '#servicios' },
-      { text: 'Metodología', url: '#metodologia' },
-      { text: 'Resultados', url: '#resultados' },
-      { text: 'Contáctanos', url: '#contacto' },
-    ],
-  },
 ]
 
 const defaultLegalLinks = [
