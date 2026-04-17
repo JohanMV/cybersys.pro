@@ -1,14 +1,13 @@
-import * as React from 'react'
+﻿import * as React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Laptop, Menu, Moon, Sun, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import WhatsAppLogo from '@/assets/icons-whatsapp.svg'
 
-import { ThemeSwitch } from '@/components/ui/theme-switch'
 import { cn } from '@/lib/utils'
 
-const mobileNavLinks = [
+const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Metodología', href: '#metodologia' },
@@ -38,7 +37,7 @@ function scrollToHash(hash: string) {
   target.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-function MobileQuickControls() {
+function QuickControls() {
   const { setTheme, resolvedTheme } = useTheme()
   const [isMounted, setIsMounted] = React.useState(false)
   const [menuOpen, setMenuOpen] = React.useState(false)
@@ -67,17 +66,17 @@ function MobileQuickControls() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [menuOpen])
 
-  if (!isMounted) return null
-
-  const isLight = resolvedTheme !== 'dark'
-
-  const handleNavClick = (href: string) => {
+  const handleNavClick = React.useCallback((href: string) => {
     setMenuOpen(false)
 
     window.setTimeout(() => {
       scrollToHash(href)
-    }, 180)
-  }
+    }, 160)
+  }, [])
+
+  if (!isMounted) return null
+
+  const isLight = resolvedTheme !== 'dark'
 
   return (
     <>
@@ -123,22 +122,24 @@ function MobileQuickControls() {
         </button>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {menuOpen && (
           <motion.div
             className="fixed inset-0 z-[60]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
           >
             <motion.button
               type="button"
               aria-label="Cerrar menú"
               onClick={() => setMenuOpen(false)}
-              className="absolute inset-0 bg-black/25 backdrop-blur-sm dark:bg-black/45"
+              className="absolute inset-0 bg-black/18 backdrop-blur-sm dark:bg-black/40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.16, ease: 'easeOut' }}
             />
 
             <motion.aside
@@ -146,14 +147,14 @@ function MobileQuickControls() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-white px-6 pb-10 pt-7 text-zinc-950 shadow-2xl dark:bg-zinc-950 dark:text-white"
+              className="absolute inset-y-0 right-0 flex w-full max-w-sm transform-gpu flex-col bg-white px-6 pb-10 pt-7 text-zinc-950 shadow-2xl will-change-transform md:max-w-[22rem] md:px-7 md:pb-8 md:pt-7 dark:bg-zinc-950 dark:text-white"
             >
-              <div className="mb-12 flex items-start justify-between">
+              <div className="mb-12 flex items-start justify-between md:mb-10">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-rose-500/90">
                     CyberSys
                   </p>
-                  <p className="mt-2 max-w-[13rem] text-sm leading-6 text-zinc-500 dark:text-zinc-400">
+                  <p className="mt-2 max-w-[13rem] text-sm leading-6 text-zinc-500 md:max-w-[13rem] dark:text-zinc-400">
                     Navega por nuestras soluciones, metodología y casos reales.
                   </p>
                 </div>
@@ -167,14 +168,14 @@ function MobileQuickControls() {
                 </button>
               </div>
 
-              <ul className="flex flex-1 flex-col justify-center gap-5">
-                {mobileNavLinks.map((link, index) => (
+              <ul className="flex flex-1 flex-col justify-center gap-5 md:justify-start md:gap-4 md:pt-6">
+                {navLinks.map((link, index) => (
                   <motion.li
                     key={link.href}
-                    initial={{ opacity: 0, x: 28 }}
+                    initial={{ opacity: 0, x: 18 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 18 }}
-                    transition={{ delay: 0.08 + index * 0.05 }}
+                    exit={{ opacity: 0, x: 12 }}
+                    transition={{ delay: 0.03 + index * 0.035, duration: 0.2 }}
                   >
                     <a
                       href={link.href}
@@ -187,7 +188,7 @@ function MobileQuickControls() {
                       <span className="text-xs font-medium tracking-[0.18em] text-rose-500/90">
                         {(index + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className="text-[clamp(1.85rem,7vw,2.6rem)] font-semibold leading-none tracking-tight">
+                      <span className="text-[clamp(1.85rem,7vw,2.6rem)] font-semibold leading-none tracking-tight md:text-[2.2rem]">
                         {link.label}
                       </span>
                     </a>
@@ -203,8 +204,8 @@ function MobileQuickControls() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
-                transition={{ delay: 0.28 }}
-                className="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-zinc-950 px-6 py-4 text-sm font-semibold tracking-[0.08em] text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                transition={{ delay: 0.18, duration: 0.2 }}
+                className="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-zinc-950 px-6 py-4 text-sm font-semibold tracking-[0.08em] text-white transition-colors hover:bg-zinc-800 md:mt-7 md:w-auto md:min-w-[14rem] md:self-start dark:bg-white dark:text-black dark:hover:bg-zinc-200"
               >
                 Solicitar asesoría
                 <WhatsAppIcon className="h-5 w-5 shrink-0" />
@@ -218,24 +219,5 @@ function MobileQuickControls() {
 }
 
 export default function ThemeSwitchDemo() {
-  return (
-    <>
-      <div className="md:hidden">
-        <MobileQuickControls />
-      </div>
-
-      <div className="hidden md:block">
-        <ThemeSwitch
-          variant="icon-click"
-          modes={['light', 'dark', 'system']}
-          icons={[
-            <Sun key="sun-icon" size={16} />,
-            <Moon key="moon-icon" size={16} />,
-            <Laptop key="laptop-icon" size={16} />,
-          ]}
-          showInactiveIcons="all"
-        />
-      </div>
-    </>
-  )
+  return <QuickControls />
 }
