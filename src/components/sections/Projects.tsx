@@ -32,7 +32,6 @@ interface ProjectDetail {
   gallery: string[]
   liveUrl?: string
   repoUrl?: string
-  note?: string
   layout?: 'stacked' | 'split'
 }
 
@@ -107,7 +106,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/ia-automatizacion',
-      note: 'Contenido de ejemplo para visualizar la propuesta de automatización en formato comercial.',
     },
   },
   {
@@ -131,7 +129,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/agente-soporte',
-      note: 'Datos de ejemplo para mostrar cómo se presentaría un asistente interno listo para negocio.',
     },
   },
   {
@@ -155,7 +152,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/clasificacion-leads',
-      note: 'Ejemplo visual preparado para simular un flujo de scoring y seguimiento comercial.',
     },
   },
   {
@@ -179,7 +175,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/ciberseguridad-base',
-      note: 'Contenido de ejemplo para mostrar un enfoque integral de seguridad adaptado a empresa.',
     },
   },
   {
@@ -203,7 +198,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/monitoreo-amenazas',
-      note: 'Vista de ejemplo para representar monitoreo continuo y analítica de eventos.',
     },
   },
   {
@@ -227,7 +221,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/auditoria-web',
-      note: 'Información de ejemplo para visualizar una auditoría web presentada como solución comercial.',
     },
   },
   {
@@ -258,7 +251,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://geopets-clinica-veterinaria.vercel.app/',
       repoUrl: 'https://github.com/JohanMV/GEOPETS_Clinica_Veterinaria',
-      note: 'La primera imagen es real. Las otras dos son placeholders temporales para que luego las reemplaces.',
     },
   },
   {
@@ -282,7 +274,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/landing-corporativa',
-      note: 'Contenido de ejemplo para visualizar esta variante de layout en dos columnas.',
     },
   },
   {
@@ -306,7 +297,6 @@ const items: ProjectItem[] = [
       ],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/example/plataforma-reservas',
-      note: 'Demo de presentación para una solución web orientada a reservas y operación diaria.',
     },
   },
 ]
@@ -395,19 +385,13 @@ function ProjectDetailModal({
                       </div>
                     </div>
 
-                    {project.detail.note && (
-                      <p className="text-xs text-zinc-700 dark:text-zinc-400">
-                        {project.detail.note}
-                      </p>
-                    )}
-
-                    <div className="flex flex-wrap gap-3 pt-2">
+                    <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                       {project.detail.liveUrl && (
                         <a
                           href={project.detail.liveUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 sm:w-auto"
                         >
                           Abrir sitio
                           <ExternalLink className="h-4 w-4" />
@@ -417,7 +401,7 @@ function ProjectDetailModal({
                         href={createWhatsAppProjectUrl(project.title)}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+                        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 sm:w-auto"
                       >
                         Solicitar para mi negocio
                         <WhatsAppIcon className="h-6 w-6 text-green-600 dark:text-white" />
@@ -526,20 +510,15 @@ function ProjectDetailModal({
                       </div>
                     </div>
 
-                    {project.detail.note && (
-                      <p className="text-xs text-zinc-700 dark:text-zinc-400">
-                        {project.detail.note}
-                      </p>
-                    )}
                   </div>
 
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                     {project.detail.liveUrl && (
                       <a
                         href={project.detail.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 sm:w-auto"
                       >
                         Abrir sitio
                         <ExternalLink className="h-4 w-4" />
@@ -549,7 +528,7 @@ function ProjectDetailModal({
                       href={createWhatsAppProjectUrl(project.title)}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-black bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 sm:w-auto"
                     >
                       Solicitar para mi negocio
                       <WhatsAppIcon className="h-6 w-6 text-green-600 dark:text-white" />
@@ -607,9 +586,9 @@ export default function Projects() {
         className="w-full bg-white px-4 py-16 pb-24 dark:bg-black sm:px-6 lg:px-8"
       >
         <div className="relative mx-auto mb-12 flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6">
-          <div className="inline-flex items-center rounded-full border border-rose-400/30 bg-rose-500/10 px-4 py-1.5">
-            <span className="text-sm font-medium text-rose-500">Proyectos</span>
-          </div>
+        <div className="inline-flex items-center rounded-full border border-rose-400/30 bg-rose-500/10 px-4 py-1.5">
+          <span className="text-sm font-medium text-rose-500">Casos reales</span>
+        </div>
           <h2 className="text-4xl font-bold text-zinc-900 md:text-5xl lg:text-6xl dark:text-white">
             Proyectos
           </h2>
@@ -619,7 +598,41 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="mx-auto mb-10 flex max-w-7xl flex-wrap items-center justify-center gap-3">
+        <div className="mx-auto mb-8 flex max-w-7xl gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:hidden">
+          {filters.map((filter) => {
+            const isActive = activeFilter === filter.label
+
+            return (
+              <button
+                key={filter.label}
+                type="button"
+                onClick={() => setActiveFilter(filter.label)}
+                className={cn(
+                  'flex shrink-0 items-center gap-3 rounded-full border px-4 py-3 text-sm font-semibold transition-all duration-200',
+                  isActive
+                    ? 'border-black bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.08)]'
+                    : 'border-white/10 bg-zinc-950 text-zinc-200 hover:border-white/20 hover:bg-zinc-900',
+                )}
+              >
+                <span
+                  className={cn(
+                    'flex h-9 w-9 items-center justify-center rounded-full border transition-colors',
+                    isActive
+                      ? 'border-black bg-black text-white'
+                      : 'border-white/15 bg-white text-black',
+                  )}
+                >
+                  {filter.icon}
+                </span>
+                <span className="whitespace-nowrap">
+                  {filter.label}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="mx-auto mb-10 hidden max-w-7xl flex-wrap items-center justify-center gap-3 md:flex">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.label
 

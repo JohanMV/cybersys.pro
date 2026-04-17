@@ -52,7 +52,7 @@ export default function Services() {
     >
       <div className="relative mx-auto mb-12 flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6">
         <div className="inline-flex items-center rounded-full border border-rose-400/30 bg-rose-500/10 px-4 py-1.5">
-          <span className="text-sm font-medium text-rose-500">Servicios</span>
+          <span className="text-sm font-medium text-rose-500">Qué hacemos</span>
         </div>
         <h2 className="text-4xl font-bold text-zinc-900 md:text-5xl lg:text-6xl dark:text-white">
           Servicios

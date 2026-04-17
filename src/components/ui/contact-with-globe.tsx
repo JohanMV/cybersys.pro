@@ -24,7 +24,7 @@ interface ContactWithGlobeProps {
 
 export default function ContactWithGlobe({
   title = 'Contáctanos',
-  subtitle = 'Contacto',
+  subtitle = 'Hablemos',
   description = 'Siempre buscamos nuevas formas de mejorar nuestros productos y servicios. Cuéntanos cómo podemos ayudarte.',
   className,
 }: ContactWithGlobeProps) {
