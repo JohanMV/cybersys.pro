@@ -42,7 +42,7 @@ function MethodologyVideo({
         playsInline
         className="h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/18 to-transparent" />
       <div className="absolute inset-0 flex h-full w-full flex-col justify-between p-8 text-left">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-sm font-semibold text-zinc-900">
           {step}
@@ -131,10 +131,11 @@ const items: MethodologyItem[] = [
       'Diseñamos la solución, la experiencia y la estructura tecnológica para construir sobre una base clara y escalable.',
     mobileIcon: Blocks,
     content: (
-      <MethodologyPanel
+      <MethodologyVideo
         step="02"
         title="Arquitectura y Diseño"
         description="Diseñamos la solución, la experiencia y la estructura tecnológica para construir sobre una base clara y escalable."
+        src="/videos/metodologia_2.webm"
       />
     ),
   },
@@ -145,10 +146,11 @@ const items: MethodologyItem[] = [
       'Construimos en iteraciones cortas con entregas frecuentes, visibilidad constante y capacidad de adaptación.',
     mobileIcon: Sparkles,
     content: (
-      <MethodologyPanel
+      <MethodologyVideo
         step="03"
         title="Desarrollo Ágil"
         description="Construimos en iteraciones cortas con entregas frecuentes, visibilidad constante y capacidad de adaptación."
+        src="/videos/metodologia_3.webm"
       />
     ),
   },
@@ -159,10 +161,11 @@ const items: MethodologyItem[] = [
       'Aplicamos pruebas, revisiones y buenas prácticas para asegurar un resultado confiable, seguro y mantenible.',
     mobileIcon: ShieldCheck,
     content: (
-      <MethodologyPanel
+      <MethodologyVideo
         step="04"
         title="Seguridad y Calidad"
         description="Aplicamos pruebas, revisiones y buenas prácticas para asegurar un resultado confiable, seguro y mantenible."
+        src="/videos/metodologia_4.mp4"
       />
     ),
   },
@@ -173,10 +176,11 @@ const items: MethodologyItem[] = [
       'Acompañamos la salida a producción, el monitoreo y la evolución del proyecto para sostener su crecimiento.',
     mobileIcon: Rocket,
     content: (
-      <MethodologyPanel
+      <MethodologyVideo
         step="05"
         title="Lanzamiento y Soporte"
         description="Acompañamos la salida a producción, el monitoreo y la evolución del proyecto para sostener su crecimiento."
+        src="/videos/metodologia_5.webm"
       />
     ),
   },
@@ -189,7 +193,7 @@ export default function Methodology() {
     <section id="metodologia" className="relative w-full py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-16">
-          <div>
+          <div className="flex h-full flex-col">
             <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
               Metodología
             </h2>
@@ -198,7 +202,7 @@ export default function Methodology() {
               escalable y lista para operar.
             </p>
 
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-1 flex-col gap-1">
               {items.map((item, index) => (
                 <motion.li
                   key={item.title}
@@ -262,7 +266,7 @@ export default function Methodology() {
             </ul>
           </div>
 
-          <div className="sticky top-10 hidden lg:block">
+          <div className="hidden self-end lg:block">
             <Card className="relative aspect-4/3 w-full gap-0 overflow-hidden p-0">
               <AnimatePresence mode="wait">
                 <motion.div
