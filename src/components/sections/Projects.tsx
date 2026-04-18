@@ -699,7 +699,7 @@ export default function Projects() {
                         </div>
                       }
                       description={item.description}
-                      className="border-black dark:border-white/20 h-full space-y-2 p-5"
+                      className="border-black dark:border-white/30 h-full space-y-2 p-5"
                       containerClassName={item.containerClassName}
                       disableTilt
                       header={

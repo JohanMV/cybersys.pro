@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section id="inicio">
       <VenomBeam className="flex w-full flex-col items-center justify-center px-5 pb-12 pt-24 sm:px-6 sm:pt-28 md:px-4 md:pb-0 md:pt-0">
-        <h2 className="relative z-20 bg-clip-text pb-1 pt-2 text-center font-sans text-[clamp(2.9rem,11vw,4.6rem)] font-bold leading-[0.95] tracking-tight text-transparent bg-linear-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white md:pb-2 md:pt-4 md:text-5xl lg:text-7xl">
+        <h2 className="relative z-20 bg-clip-text pb-1 pt-2 text-center font-sans text-[clamp(2.9rem,11vw,4.6rem)] font-bold leading-[0.95] tracking-tight text-transparent bg-linear-to-b from-neutral-900 to-neutral-700 dark:bg-none dark:text-white md:pb-2 md:pt-4 md:text-5xl lg:text-7xl">
           Cybersys
           <br />
           Descubre nuevas{' '}
@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="relative z-20 mt-11 flex w-full max-w-xs flex-col items-center gap-3 sm:w-auto sm:max-w-none sm:flex-row md:mt-10 lg:mt-12">
           <OrbButton
             onClick={() => scrollToSection('contacto')}
-            className="w-full justify-center bg-white text-black hover:bg-white/90 dark:bg-white dark:text-black sm:w-auto [&>span:first-child]:bg-black [&>span:first-child>span]:text-white [&>span:last-child]:text-black"
+            className="w-full justify-center bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black sm:w-auto [&>span:first-child]:bg-white [&>span:first-child>span]:text-black [&>span:last-child]:text-white dark:[&>span:first-child]:bg-black dark:[&>span:first-child>span]:text-white dark:[&>span:last-child]:text-black"
           >
             Empezar ahora
           </OrbButton>
