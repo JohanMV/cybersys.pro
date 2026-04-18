@@ -2,13 +2,6 @@
 
 import * as React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import {
-  Blocks,
-  ClipboardList,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-} from 'lucide-react'
 
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -17,7 +10,7 @@ interface MethodologyItem {
   step: string
   title: string
   description: string
-  mobileIcon: React.ComponentType<{ className?: string }>
+  videoSrc: string
   content: React.ReactNode
 }
 
@@ -86,20 +79,25 @@ function MethodologyPanel({
 
 function MobileMethodologyDetail({
   description,
-  Icon,
+  src,
 }: {
   description: string
-  Icon: React.ComponentType<{ className?: string }>
+  src: string
 }) {
   return (
     <div className="mt-3 -mx-4 border-t border-black/15 px-4 pt-6 dark:border-white/10">
-      <div className="flex min-h-[17rem] flex-col px-2 pb-2">
-        <div className="flex flex-1 items-center justify-center">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full border border-black/10 bg-zinc-50 text-zinc-900 dark:border-white/10 dark:bg-zinc-900 dark:text-white">
-            <Icon className="h-9 w-9" />
-          </div>
+      <div className="flex flex-col gap-5 px-2 pb-2">
+        <div className="relative overflow-hidden rounded-2xl bg-zinc-950">
+          <video
+            src={src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-44 w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/18 to-transparent" />
         </div>
-
         <p className="text-left text-base leading-8 text-zinc-700 dark:text-zinc-300">
           {description}
         </p>
@@ -114,7 +112,7 @@ const items: MethodologyItem[] = [
     title: 'Consultoría y Diagnóstico',
     description:
       'Analizamos procesos, objetivos y necesidades técnicas para definir una hoja de ruta realista desde el inicio.',
-      mobileIcon: ClipboardList,
+    videoSrc: '/videos/metodologia_1.webm',
     content: (
       <MethodologyVideo
         step="01"
@@ -129,7 +127,7 @@ const items: MethodologyItem[] = [
     title: 'Arquitectura y Diseño',
     description:
       'Diseñamos la solución, la experiencia y la estructura tecnológica para construir sobre una base clara y escalable.',
-    mobileIcon: Blocks,
+    videoSrc: '/videos/metodologia_2.webm',
     content: (
       <MethodologyVideo
         step="02"
@@ -144,7 +142,7 @@ const items: MethodologyItem[] = [
     title: 'Desarrollo Ágil',
     description:
       'Construimos en iteraciones cortas con entregas frecuentes, visibilidad constante y capacidad de adaptación.',
-    mobileIcon: Sparkles,
+    videoSrc: '/videos/metodologia_3.webm',
     content: (
       <MethodologyVideo
         step="03"
@@ -159,7 +157,7 @@ const items: MethodologyItem[] = [
     title: 'Seguridad y Calidad',
     description:
       'Aplicamos pruebas, revisiones y buenas prácticas para asegurar un resultado confiable, seguro y mantenible.',
-    mobileIcon: ShieldCheck,
+    videoSrc: '/videos/metodologia_4.mp4',
     content: (
       <MethodologyVideo
         step="04"
@@ -174,7 +172,7 @@ const items: MethodologyItem[] = [
     title: 'Lanzamiento y Soporte',
     description:
       'Acompañamos la salida a producción, el monitoreo y la evolución del proyecto para sostener su crecimiento.',
-    mobileIcon: Rocket,
+    videoSrc: '/videos/metodologia_5.webm',
     content: (
       <MethodologyVideo
         step="05"
@@ -256,7 +254,7 @@ export default function Methodology() {
                       >
                         <MobileMethodologyDetail
                           description={item.description}
-                          Icon={item.mobileIcon}
+                          src={item.videoSrc}
                         />
                       </motion.div>
                     )}
