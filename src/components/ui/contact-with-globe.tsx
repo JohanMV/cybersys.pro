@@ -1,11 +1,12 @@
 ﻿'use client';
 
+import * as React from 'react';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Mail, Phone, Headphones } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SeparatorPro } from '@/components/ui/separator-pro';
-import GlobeWireframe from '@/components/ui/globe-wireframe';
+const GlobeWireframe = React.lazy(() => import('@/components/ui/globe-wireframe'));
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
@@ -28,6 +29,28 @@ export default function ContactWithGlobe({
   description = 'Siempre buscamos nuevas formas de mejorar nuestros productos y servicios. Cuéntanos cómo podemos ayudarte.',
   className,
 }: ContactWithGlobeProps) {
+  const globeContainerRef = React.useRef<HTMLDivElement>(null);
+  const [shouldRenderGlobe, setShouldRenderGlobe] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = globeContainerRef.current;
+    if (!node || shouldRenderGlobe) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRenderGlobe(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '240px 0px' },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [shouldRenderGlobe]);
+
   return (
     <section
       className={cn(
@@ -106,15 +129,31 @@ export default function ContactWithGlobe({
               ))}
             </div>
 
-            <div className="relative overflow-hidden h-52">
-              <GlobeWireframe
-                className="w-full aspect-square max-w-full absolute top-0 left-0"
-                variant="wireframesolid"
-                autoRotate
-                autoRotateSpeed={0.45}
-                strokeWidth={0.6}
-                graticuleOpacity={0.12}
-              />
+            <div ref={globeContainerRef} className="relative overflow-hidden h-52">
+              {shouldRenderGlobe ? (
+                <React.Suspense
+                  fallback={
+                    <div
+                      className="absolute left-0 top-0 aspect-square w-full max-w-full"
+                      aria-hidden="true"
+                    />
+                  }
+                >
+                  <GlobeWireframe
+                    className="w-full aspect-square max-w-full absolute top-0 left-0"
+                    variant="wireframesolid"
+                    autoRotate
+                    autoRotateSpeed={0.45}
+                    strokeWidth={0.6}
+                    graticuleOpacity={0.12}
+                  />
+                </React.Suspense>
+              ) : (
+                <div
+                  className="absolute left-0 top-0 aspect-square w-full max-w-full"
+                  aria-hidden="true"
+                />
+              )}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-zinc-50 dark:from-zinc-950 to-transparent" />
             </div>
           </motion.div>
